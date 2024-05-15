@@ -1,0 +1,20 @@
+/* stylelint-disable color-no-hex  */
+$color-names-styleguide: (
+    athens-gray: #e9eaee,
+    blue-zodiac: #133157,
+    link-water: #e7edf9,
+    slate-gray: #758196,
+    white-lilac: #f5f7fb,
+);
+/* stylelint-enable color-no-hex  */
+
+$colors-styleguide: map-merge($colors, $color-names-styleguide);
+
+// Color generation
+@function color($color) {
+    @if map-has-key($colors-styleguide, $color) {
+        @return map-get($colors-styleguide, $color);
+    }
+
+    @return null;
+}

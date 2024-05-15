@@ -1,0 +1,35 @@
+.paginate-links {
+    display: flex;
+    align-items: center;
+
+    .previous,
+    .next,
+    .number {
+        @media (hover: hover) and (pointer: fine) {
+            transition: color var(--speed-fast) ease-out;
+        }
+    }
+
+    .number,
+    .ellipsis {
+        padding: 0 20px;
+        font-weight: 700;
+    }
+
+    .btn {
+        margin-top: 0;
+
+        &.previous {
+            margin-right: auto;
+        }
+
+        &.next {
+            margin-left: auto;
+        }
+    }
+
+    .disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+}

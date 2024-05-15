@@ -1,0 +1,94 @@
+.accordion__holder {
+    --py-accordion: #{spacer(3)};
+    --mt-accordion-term: #{spacer(2)};
+    --size-accordion-btn: 36px;
+    position: relative;
+
+    .accordion__item {
+        padding: {
+            top: var(--py-accordion);
+            bottom: calc(var(--py-accordion) - var(--mt-accordion-term));
+        }
+
+        .accordion__term {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: var(--mt-accordion-term);
+            outline: none;
+            padding-right: calc(var(--size-accordion-btn) + spacer(2));
+            cursor: pointer;
+            position: relative;
+
+            .accordion__button {
+                width: var(--size-accordion-btn);
+                height: var(--size-accordion-btn);
+                border-radius: 50%;
+                background-color: rgba(color(milk), .1);
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+
+                span {
+                    opacity: 1;
+                    width: 40%;
+                    height: 4px;
+                    background-color: color(cola);
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 1;
+                    transition: transform var(--speed-default) var(--cubic-bezier-2), opacity var(--speed-default) var(--cubic-bezier-2);
+
+                    &:last-child {
+                        transform: translate(-50%, -50%) rotate(90deg);
+                    }
+                }
+            }
+
+            &.open {
+                .accordion__button {
+                    span {
+                        &:first-child {
+                            opacity: 0;
+                            transform: translate(-50%, -50%) rotate(90deg);
+                        }
+
+                        &:last-child {
+                            transform: translate(-50%, -50%) rotate(180deg);
+                        }
+                    }
+                }
+            }
+        }
+
+        .accordion__body {
+            &.show {
+                .accordion__description {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        .accordion__description {
+            opacity: 0;
+            color: color(oslo);
+            transform: translateY(20px);
+            transition: opacity var(--speed-fast) ease-out, transform var(--speed-default) var(--cubic-bezier-2);
+        }
+
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        --py-accordion: #{spacer(5)};
+        --mt-accordion-term: #{spacer(4)};
+        --size-accordion-btn: 42px;
+    }
+}

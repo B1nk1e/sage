@@ -1,0 +1,185 @@
+@use 'sass:math';
+
+.custom-control {
+    display: flex;
+    position: relative;
+
+    > * {
+        cursor: pointer;
+    }
+
+    .custom-control__indicator {
+        flex-shrink: 0;
+        width: var(--size-custom-control-indicator);
+        height: var(--size-custom-control-indicator);
+        border: 1px solid color(tapa);
+        position: relative;
+        top: 2px;
+        transition: all var(--speed-default) linear;
+
+        &::before {
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            background-color: color(cola);
+            content: '';
+            position: absolute;
+            transform: scale(0);
+        }
+
+        &::before,
+        &::after {
+            transition: {
+                property: opacity, transform;
+                duration: var(--speed-fast), var(--speed-default);
+                timing-function: linear, var(--ease-in-out-quart);
+            }
+        }
+    }
+
+    label,
+    .custom-control__text {
+        padding-left: spacer(2);
+        user-select: none;
+        position: relative;
+        z-index: 2;
+    }
+
+    input[type='checkbox'],
+    input[type='radio'],
+    .custom-control__input {
+        @include fill-w-h;
+        opacity: 0;
+        z-index: 1;
+
+        &:disabled {
+            ~ * {
+                opacity: .4;
+            }
+        }
+
+        &:disabled,
+        &:checked {
+            ~ .custom-control__indicator {
+                border-width: 0;
+
+                &::before {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+        }
+    }
+
+    + .custom-control {
+        margin-top: spacer(2);
+    }
+
+    &.custom-control--checkbox {
+        .custom-control__indicator {
+            &,
+            &::before {
+                border-radius: var(--size-border-radius);
+            }
+
+            .checkmark {
+                &::before,
+                &::after {
+                    opacity: 0;
+                }
+            }
+        }
+
+        input[type='checkbox'],
+        input[type='radio'],
+        .custom-control__input {
+            &:checked {
+                ~ .custom-control__indicator {
+                    .checkmark {
+                        @include checkmarkAnimation(checkmark, 4px, 8px);
+                    }
+                }
+            }
+        }
+    }
+
+    &.custom-control--radio {
+        .custom-control__indicator {
+            &,
+            &::before {
+                border-radius: 50%;
+            }
+
+            &::after {
+                opacity: 0;
+                width: 6px;
+                height: 6px;
+                margin: {
+                    top: -3px;
+                    left: -3px;
+                }
+                border-radius: 50%;
+                background-color: color(milk);
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: scale(.25);
+                z-index: 4;
+                transition-delay: .31s;
+            }
+        }
+
+        input[type='radio'],
+        .custom-control__input {
+            &:checked {
+                ~ .custom-control__indicator {
+                    &::after {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+            }
+        }
+    }
+
+    &.custom-control--radio-checkmark {
+        .custom-control__indicator {
+            &,
+            &::before {
+                border-radius: 50%;
+            }
+
+            .checkmark {
+                width: 6px;
+                height: 10px;
+
+                &::before,
+                &::after {
+                    opacity: 0;
+                }
+
+                &::before {
+                    width: 6px;
+                    height: 2px;
+                }
+
+                &::after {
+                    width: 2px;
+                    height: 10px;
+                }
+            }
+        }
+    }
+
+    .form-group--inline & {
+        display: inline-flex;
+
+        ~ .custom-control {
+            margin: {
+                top: 0;
+                left: 15px;
+            }
+        }
+    }
+}

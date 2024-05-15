@@ -1,0 +1,214 @@
+@use 'sass:math';
+
+// Center Horizontally
+@mixin center-x($position, $distance) {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+
+	@if $position == 'top' {
+		top: $distance;
+		bottom: auto;
+	} @else {
+		top: auto;
+		bottom: $distance;
+	}
+}
+
+// Center Vertically
+@mixin center-y($position, $distance) {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+
+	@if $position == 'left' {
+		right: auto;
+		left: $distance;
+	} @else {
+		right: $distance;
+		left: auto;
+	}
+}
+
+// Center both Horizontally and Vertically
+@mixin center-x-y {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/* Fill both width and height */
+@mixin fill-w-h($image: false) {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	@if $image {
+		object-fit: cover;
+	}
+}
+
+// Overflow
+@mixin overflow($axis) {
+	@if $axis == 'x' {
+		overflow-x: auto;
+		overflow-y: hidden;
+	} @else {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}
+
+// Content animation
+@mixin animation-content($duration) {
+	animation: {
+		name: content;
+		direction: normal;
+		timing-function: ease-in-out;
+		iteration-count: 1;
+	}
+
+	@if $duration {
+		animation-duration: $duration;
+	} @else {
+		animation-duration: .3s;
+	}
+
+	@keyframes content {
+		from {
+			opacity: 0;
+			transform: translateY(5%);
+		}
+
+		to {
+			opacity: 1;
+			transform: translateY(0%);
+		}
+	}
+}
+
+// Button
+@mixin button {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	height: var(--height-btn);
+	margin-top: 15px;
+	padding: var(--padding-button);
+	font: {
+		family: $font-family-base;
+		weight: 400;
+		size: var(--font-size-base);
+	}
+	line-height: 1;
+	color: color(milk);
+	white-space: nowrap;
+	position: relative;
+}
+
+// Responsive Ratio
+@mixin responsive-ratio($x, $y, $pseudo: false) {
+	$padding: math.percentage(math.div($y, $x));
+
+	@if $pseudo {
+		&::before {
+			display: block;
+			width: 100%;
+			padding-top: $padding;
+			content: '';
+			position: relative;
+		}
+	} @else {
+		padding-top: $padding;
+	}
+}
+
+// Truncate
+@mixin truncate($truncation-boundary) {
+	overflow: hidden;
+	max-width: $truncation-boundary;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+// Checkmark
+@mixin checkmark() {
+    overflow: hidden;
+    width: 5px;
+    height: 9px;
+    margin-top: -2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+
+    &::before,
+    &::after {
+        display: block;
+        background-color: color(milk);
+        content: '';
+        position: absolute;
+        bottom: 0;
+    }
+
+    &::before {
+        width: 5px;
+        height: 1px;
+        left: 0;
+    }
+
+    &::after {
+        width: 1px;
+        height: 9px;
+        right: 0;
+    }
+}
+
+/* stylelint-disable plugin/no-low-performance-animation-properties  */
+@mixin checkmarkAnimation($animation-name, $xValue, $yValue) {
+    &::before,
+    &::after {
+        animation-timing-function: var(--cubic-bezier);
+        animation-fill-mode: forwards;
+    }
+
+    &::before {
+        animation-name: #{$animation-name}-before;
+        animation-duration: var(--speed-default);
+
+        @keyframes #{$animation-name}-before {
+            0% {
+                opacity: 1;
+                transform: translateX(-#{$xValue});
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    }
+
+    &::after {
+        animation-name: #{$animation-name}-after;
+        animation-duration: var(--speed-default);
+        animation-delay: var(--speed-default);
+
+        @keyframes #{$animation-name}-after {
+            0% {
+                opacity: 1;
+                transform: translateY($yValue);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}
+
+/* stylelint-enable plugin/no-low-performance-animation-properties  */

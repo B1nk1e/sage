@@ -1,0 +1,78 @@
+{
+	"root": true,
+	"parser": "vue-eslint-parser",
+	"parserOptions": {
+	  "parser": "@typescript-eslint/parser",
+	  "ecmaVersion": 2020,
+	  "sourceType": "module"
+	},
+	"plugins": [
+	  "@typescript-eslint",
+	  "eslint-plugin-vue"
+	],
+	"extends": [
+	  "eslint:recommended",
+	  "plugin:@typescript-eslint/eslint-recommended",
+	  "plugin:@typescript-eslint/recommended",
+	  "plugin:vue/vue3-recommended"
+	],
+	"env": {
+	  "browser": true,
+	  "node": true
+	},
+	"rules": {
+	  "@typescript-eslint/no-explicit-any": "off",
+	  "@typescript-eslint/ban-ts-comment": "off",
+	  "@typescript-eslint/no-unused-expressions": "error",
+	  "vue/html-indent": [
+		"error",
+		"tab",
+		{
+		  "attribute": 1
+		}
+	  ],
+	  "vue/script-indent": [
+		"error",
+		"tab",
+		{
+		  "switchCase": 1
+		}
+	  ],
+	  "vue/no-v-html": 0,
+	  "vue/no-parsing-error": [
+		2,
+		{
+		  "invalid-first-character-of-tag-name": false
+		}
+	  ],
+	  "no-tabs": 0,
+	  "consistent-return": "off",
+	  "func-names": "off",
+	  "import/prefer-default-export": "off",
+	  "indent": 0,
+	  "max-len": "off",
+	  "no-param-reassign": "off",
+	  "no-unused-expressions": "off",
+	  "no-unused-vars": "off",
+	  "comma-dangle": [
+		"error",
+		{
+		  "arrays": "always-multiline",
+		  "objects": "always-multiline",
+		  "imports": "always-multiline",
+		  "exports": "always-multiline",
+		  "functions": "ignore"
+		}
+	  ]
+	},
+	"overrides": [
+	  {
+		"files": [
+		  "*.vue"
+		],
+		"rules": {
+		  "indent": "off"
+		}
+	  }
+	]
+  }

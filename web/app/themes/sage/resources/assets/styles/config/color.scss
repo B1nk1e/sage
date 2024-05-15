@@ -1,0 +1,35 @@
+/* stylelint-disable color-no-hex  */
+$colors: (
+    // Primary
+    // Secondary
+    // Grayscale
+    cola: #000,
+    milk: #fff,
+);
+/* stylelint-enable color-no-hex  */
+
+// Color generation
+@function color($color) {
+    @if map-has-key($colors, $color) {
+        @return map-get($colors, $color);
+    }
+
+    @return null;
+}
+
+/* stylelint-disable declaration-no-important */
+@each $name, $value in $colors {
+    .text-#{$name} {
+        color: $value !important;
+
+        > * {
+            color: inherit;
+        }
+    }
+
+    .bg-#{$name} {
+        background-color: $value !important;
+    }
+}
+
+/* stylelint-enable declaration-no-important */

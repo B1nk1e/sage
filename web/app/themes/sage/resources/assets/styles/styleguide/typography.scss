@@ -1,0 +1,114 @@
+.styleguide {
+	.section--typography {
+		.holder + .holder {
+			margin-top: 0;
+		}
+
+		.font {
+			display: flex;
+			align-items: center;
+			margin-top: 20px;
+			border-radius: 5px;
+			padding: 10px;
+			background-color: color(milk);
+			color: color(cola);
+			box-shadow: 0 4px 10px rgba(color(link-water), .4);
+
+			&.font--regular {
+				font-weight: 400;
+			}
+
+			&.font--medium {
+				font-weight: 500;
+			}
+
+			&.font--bold {
+				font-weight: 700;
+			}
+		}
+
+		.font-preview {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 120px;
+			height: 105px;
+			border-radius: 5px;
+			background-color: color(white-lilac);
+
+			p {
+				font-size: 40px;
+				line-height: 1;
+			}
+		}
+
+		.font-text {
+			padding-left: 15px;
+		}
+
+		.font-family {
+			font-size: 16px;
+		}
+
+		.font-weight {
+			display: block;
+			margin-top: 5px;
+			font-size: 12px;
+			line-height: 1;
+		}
+
+		.typography-code {
+			margin-top: 10px;
+			color: color(cola);
+
+			.style-key,
+			.style-value {
+				font-size: 12px;
+			}
+
+			.style-key {
+				font-weight: 600;
+			}
+
+			.typography-preview {
+				margin-top: 20px;
+			}
+		}
+
+		.primary {
+			font-family: $font-family-base;
+		}
+
+		.secondary {
+			font-family: $font-family-secondary;
+		}
+
+		@include media-breakpoint-up(md) {
+			.typography-code {
+				.style-key,
+				.style-value {
+					font-weight: 100;
+					font-size: 14px;
+				}
+			}
+		}
+
+		@include media-breakpoint-up(lg) {
+			.typography-code {
+				.typography-preview {
+					margin-top: 0;
+				}
+			}
+		}
+
+		@include media-breakpoint-up(xxl) {
+			.font-text {
+				padding-left: 30px;
+			}
+
+			.font-preview {
+				width: 130px;
+			}
+		}
+	}
+}

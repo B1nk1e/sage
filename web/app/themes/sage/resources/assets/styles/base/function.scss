@@ -1,0 +1,49 @@
+@use 'sass:math';
+
+@function decimal-round($number, $digits: 0, $mode: round) {
+    $n: 1;
+    // $number must be a number
+    @if type-of($number) != number {
+        @warn '#{ $number } is not a number.';
+        @return $number;
+    }
+    // $digits must be a unitless number
+    @if type-of($digits) != number {
+        @warn '#{ $digits } is not a number.';
+        @return $number;
+    } @else if not unitless($digits) {
+        @warn '#{ $digits } has a unit.';
+        @return $number;
+    }
+
+    @if $digits != 0 {
+        @for $i from 1 through $digits {
+            $n: $n * 10;
+        }
+    }
+
+    @if $mode == round {
+        @return math.div(round($number * $n), $n);
+    } @else if $mode == ceil {
+        @return math.div(ceil($number * $n), $n);
+    } @else if $mode == floor {
+        @return math.div(floor($number * $n), $n);
+    } @else {
+        @warn '#{ $mode } is undefined keyword.';
+        @return $number;
+    }
+}
+
+@function clamp-calculator($min-size, $max-size) {
+    $min-breakpoint: 375;
+    $max-breakpoint: 1920;
+    $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
+    $slope-vw: decimal-round($slope * 100, 2) + 'vw';
+    $intercept: decimal-round(($min-size - $slope * $min-breakpoint), 2, floor) + 'px';
+
+    @return clamp(#{$min-size}px, #{$slope-vw} + #{$intercept}, #{$max-size}px);
+}
+
+@function spacer($amount: 1) {
+    @return ($app-spacer * $amount);
+}

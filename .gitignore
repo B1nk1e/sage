@@ -1,0 +1,38 @@
+# Application
+web/app/plugins/*
+!web/app/plugins/.gitkeep
+web/app/mu-plugins/*/
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+web/app/themes/sage/public
+web/app/cache
+
+# WordPress
+web/wp
+web/.htaccess
+
+# Plugin
+!web/app/plugins/gravityforms
+
+# Logs
+*.log
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# Composer
+/vendor
+
+# WP-CLI
+wp-cli.local.yml
+
+# sage default
+node_modules
+*.map
+
+# OS generated files
+.DS_STORE
+.idea

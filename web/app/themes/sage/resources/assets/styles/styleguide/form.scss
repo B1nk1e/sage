@@ -1,0 +1,23 @@
+.styleguide {
+	.section--checkboxes,
+	.section--dropdown,
+	.section--radio {
+		.section__content {
+			.subtitle {
+				margin-bottom: 20px;
+			}
+		}
+	}
+
+	.section--checkboxes,
+	.section--radio {
+		.form-group {
+			display: inline-flex;
+			flex-direction: column;
+			border-radius: 5px;
+			padding: 30px 50px;
+			background-color: color(milk);
+			box-shadow: 0 4px 10px rgba(color(link-water), .4);
+		}
+	}
+}

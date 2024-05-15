@@ -1,0 +1,24 @@
+.embed-responsive {
+    overflow: hidden;
+    position: relative;
+
+    .embed-responsive-item {
+        @include fill-w-h;
+    }
+
+    &.embed-responsive-21by9 {
+        padding-top: 42.857143%;
+    }
+
+    &.embed-responsive-16by9 {
+        padding-top: 56.25%;
+    }
+
+    &.embed-responsive-4by3 {
+        padding-top: 75%;
+    }
+
+    &.embed-responsive-1by1 {
+        padding-top: 100%;
+    }
+}

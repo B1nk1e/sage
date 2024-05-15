@@ -1,0 +1,64 @@
+{
+  "ts-node": {
+	"compilerOptions": {
+	  "module": "commonjs"
+	}
+  },
+  "compilerOptions": {
+	"baseUrl": "./web/app/themes/sage/resources/assets",
+	"ignoreDeprecations": "5.0",
+	"paths": {
+	  "@scripts/*": [
+		"scripts/*"
+	  ],
+	  "@component/*": [
+		"scripts/component/*"
+	  ],
+	  "@element/*": [
+		"scripts/element/*"
+	  ],
+	  "@route/*": [
+		"scripts/route/*"
+	  ],
+	  "@util/*": [
+		"scripts/util/*"
+	  ]
+	},
+	"allowSyntheticDefaultImports": true,
+	"target": "es6",
+	"downlevelIteration": true,
+	"importHelpers": true,
+	"sourceMap": true,
+	"moduleResolution": "node",
+	"jsx": "react",
+	"allowJs": true,
+	"checkJs": false,
+	"lib": [
+	  "dom",
+	  "esnext",
+	  "es2017"
+	],
+	"module": "esnext",
+	"forceConsistentCasingInFileNames": true,
+	"experimentalDecorators": true,
+	"noImplicitAny": false,
+	"noUnusedParameters": false,
+	"noImplicitReturns": true,
+	"noImplicitThis": true,
+	"noUnusedLocals": true,
+	"skipLibCheck": true,
+	"strictNullChecks": false,
+	"suppressImplicitAnyIndexErrors": true,
+	"types": [
+	  "node",
+	  "webpack"
+	]
+  },
+  "include": [
+	"web/app/themes/sage/resources/assets/scripts/**/*.js",
+  ],
+  "exclude": [
+	"node_modules",
+	"web/app/themes/sage/public"
+  ]
+}

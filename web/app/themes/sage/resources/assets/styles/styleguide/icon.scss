@@ -1,0 +1,46 @@
+.styleguide {
+    .section--icons {
+        .section__content {
+            display: flex;
+            border-radius: 5px;
+            padding: 30px;
+            background-color: color(milk);
+            box-shadow: 0 4px 10px rgba(color(link-water), .4);
+
+            .row {
+                margin: {
+                    top: calc((var(--width-grid-gutter) / 2) * -1);
+                    bottom: calc((var(--width-grid-gutter) / 2) * -1);
+                }
+
+                [class^='col-'] {
+                    padding: {
+                        top: calc(var(--width-grid-gutter) / 2);
+                        bottom: calc(var(--width-grid-gutter) / 2);
+                    }
+                }
+            }
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 5px;
+            background-color: color(white-lilac);
+            font-size: 24px;
+            color: color(cod);
+
+            i {
+                font-size: 24px;
+
+                &.icon-chevron-up,
+                &.icon-chevron-down {
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

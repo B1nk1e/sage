@@ -1,0 +1,86 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: color(cola);
+    font-weight: 600;
+    font-size: 16px;
+    color: color(milk);
+	padding: 12px 24px;
+
+    &:disabled {
+        opacity: .3;
+        pointer-events: none;
+    }
+
+    &:not(:last-child) {
+        margin-right: spacer();
+    }
+
+    &.btn--ir {
+        i {
+            margin-left: 15px;
+        }
+    }
+
+    &.btn--il {
+        i {
+            margin-right: 15px;
+        }
+    }
+
+    &.btn--io {
+        justify-content: center;
+        width: 51px;
+        height: 51px;
+        font-size: 14px;
+        box-shadow: none;
+    }
+
+    &.btn--small {
+        padding: 9px 23px;
+        font-size: 15px;
+    }
+
+    &.btn--social {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        border-radius: 50%;
+        font-size: 20px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+        transition: box-shadow var(--speed-default) var(--cubic-bezier-2), background-color var(--speed-default) var(--cubic-bezier-2), color var(--speed-default) var(--cubic-bezier-2);
+
+        &:hover {
+            background-color: color(cola);
+            color: color(milk);
+
+            &:not(.btn--io, .btn--social) {
+                box-shadow: 0 4px 30px rgba(color(milk), .6);
+            }
+
+            &.btn--io {
+                background-color: color(baltic);
+            }
+
+            &.btn--social {
+                background-color: color(purple);
+                color: color(barbie);
+            }
+        }
+    }
+
+    @each $name, $value in $colors {
+        &.btn--#{$name} {
+            background-color: color($value);
+        }
+    }
+}
+
+.button-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	gap: spacer();
+	margin-top: spacer(3);
+}

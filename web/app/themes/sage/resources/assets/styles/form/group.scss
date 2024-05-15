@@ -1,0 +1,22 @@
+.form-group,
+.input-group {
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    label {
+        cursor: pointer;
+    }
+}
+
+.input-group {
+    .input-group-append {
+        @include center-y('right', 20px);
+    }
+}

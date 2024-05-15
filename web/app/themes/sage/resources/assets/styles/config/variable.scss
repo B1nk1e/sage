@@ -1,0 +1,160 @@
+:root {
+	// Bootstrap gutter
+	--app-gutter-x: #{$grid-gutter-width};
+	--app-gutter-x-half: calc(#{$grid-gutter-width} * .5);
+
+	// Spacer
+	--spacer: #{$app-spacer};
+
+	// Size
+	--size-custom-control-indicator: 18px;
+	--size-input: 48px;
+
+	// Width
+	--width-grid-gutter: #{$grid-gutter-width};
+
+	// Height
+	--height-btn: 48px;
+
+	// Padding
+	--padding-button: 17px 20px;
+	--padding-input: 20px;
+
+	// Margins
+	--margin-section-y: #{spacer(6)};
+
+	// Font size
+	--font-size-base: 14px;
+
+	--font-size-xl: 18px;
+	--font-size-l: 16px;
+	--font-size-m: 14px;
+	--font-size-s: 12px;
+	--font-size-xs: 10px;
+
+	--font-size-btn-m: 12px;
+	--font-size-btn-s: 10px;
+
+	--font-size-quote-l: 20px;
+	--font-size-quote-m: 16px;
+
+	// Line height
+	--line-height-base: 22px;
+
+	--line-height-xl: 26px;
+	--line-height-l: 24px;
+	--line-height-m: 22px;
+	--line-height-s: 20px;
+	--line-height-xs: 16px;
+
+	--line-height-intro: 26px;
+
+	--line-height-btn-m: 14px;
+	--line-height-btn-s: 16px;
+
+	--line-height-quote-l: 32px;
+	--line-height-quote-m: 24px;
+
+	// Leter spacing
+	--letter-spacing-base: -0.08px;
+	--letter-spacing-btn: 1px;
+
+	// Transition
+	--speed-fast: .125s;
+	--speed-default: .25s;
+	--speed-slow: .5s;
+	--speed-sluggish: 1s;
+	--speed-snail: 2s;
+
+	// Easing
+	--cubic-bezier: cubic-bezier(.12, 0, .39, 0);
+	--cubic-bezier-2: cubic-bezier(.61, 1, .88, 1);
+	--cubic-bezier-3: cubic-bezier(.5, 1, .89, 1);
+	--cubic-bezier-4: cubic-bezier(.25, 1, .5, 1);
+	--cubic-bezier-5: cubic-bezier(.76, 0, .24, 1);
+	--cubic-bezier-6: cubic-bezier(.68, -.6, .32, 1.6);
+
+	@include media-breakpoint-up(xs) {
+		--font-size-xl: 18px;
+		--font-size-l: 16px;
+		--font-size-m: 14px;
+		--font-size-s: 12px;
+		--font-size-xs: 10px;
+	}
+
+	@include media-breakpoint-up(lg) {
+		// Width
+		--width-grid-gutter: 20px;
+
+		// Margins
+		--margin-section-y: #{spacer(8)};
+	}
+
+	@include media-breakpoint-up(xl) {
+		// Width
+		--width-grid-gutter: 25px;
+	}
+
+	@include media-breakpoint-up(xxl) {
+		// Width
+		--width-grid-gutter: 30px;
+
+		// Margins
+		--margin-section-y: #{spacer(10)};
+
+		// Base Font Size
+		--font-size-base: 16px;
+
+		--font-size-xl: 20px;
+		--font-size-l: 18px;
+		--font-size-m: 16px;
+		--font-size-s: 14px;
+		--font-size-xs: 12px;
+
+		--font-size-quote-l: 24px;
+		--font-size-quote-m: 20px;
+
+		// Line height
+		--line-height-base: 24px;
+
+		--line-height-xl: 28px;
+		--line-height-l: 26px;
+		--line-height-m: 24px;
+		--line-height-s: 22px;
+		--line-height-xs: 18px;
+
+		--line-height-intro: 36px;
+
+		--line-height-quote-l: 36px;
+		--line-height-quote-m: 32px;
+
+	}
+
+	@include media-breakpoint-up(fhd) {
+		// Base Font Size
+		--font-size-xl: 24px;
+		--font-size-l: 20px;
+		--font-size-m: 16px;
+		--font-size-s: 14px;
+		--font-size-xs: 12px;
+		--font-size-button: 12px;
+
+		--font-size-quote-l: 24px;
+		--font-size-quote-m: 20px;
+
+		--line-height-base: 24px;
+
+		--line-height-xl: 40px;
+		--line-height-l: 36px;
+		--line-height-m: 24px;
+		--line-height-s: 22px;
+		--line-height-xs: 18px;
+
+		--line-height-intro: 40px;
+
+		--line-height-quote-l: 40px;
+		--line-height-quote-m: 32px;
+
+		--letter-spacing-base: -0.1px;
+	}
+}

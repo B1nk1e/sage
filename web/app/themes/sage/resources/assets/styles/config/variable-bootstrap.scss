@@ -1,0 +1,124 @@
+@use 'sass:math';
+@use 'sass:map';
+
+$variable-prefix: app-;
+
+/* Spacing */
+$spacer: 8px;
+$spacers: (
+	0: 0,
+	5: math.div($spacer, 2),
+	10: $spacer,
+	15: ($spacer * 1.5),
+	20: ($spacer * 2),
+	25: ($spacer * 2.5),
+	30: ($spacer * 3),
+	35: ($spacer * 3.5),
+	40: ($spacer * 4),
+	45: ($spacer * 4.5),
+	50: ($spacer * 5),
+	55: ($spacer * 5.5),
+	60: ($spacer * 6),
+	65: ($spacer * 6.5),
+	70: ($spacer * 7),
+	75: ($spacer * 7.5),
+	80: ($spacer * 8),
+	85: ($spacer * 8.5),
+	90: ($spacer * 9),
+	95: ($spacer * 9.5),
+	100: ($spacer * 10)
+);
+
+/* Grid breakpoints */
+$grid-breakpoints: (
+	xs: 0,
+	sm: 568px,
+	md: 768px,
+	lg: 1024px,
+	xl: 1280px,
+	xxl: 1440px,
+	fhd: 1680px,
+);
+
+/* Grid gutter width */
+$grid-gutter-width: 32px;
+$container-max-widths: false;
+$enable-dark-mode: false;
+
+@if variable-exists(is-styleguide) and $is-styleguide {
+	/* Grid containers */
+	$container-max-widths: (
+		sm: 668px,
+		md: 768px,
+		lg: 934px,
+		xl: 1140px,
+		xxl: 1300px,
+		fhd: 1480px
+	);
+}
+
+/* Utilities */
+$utilities: (
+	'display': (
+		responsive: true,
+		print: true,
+		property: display,
+		class: d,
+		values: inline inline-block block grid table table-row table-cell flex inline-flex none
+	),
+	'margin': (
+		responsive: true,
+		property: margin,
+		class: m,
+		values: map.merge($spacers, (auto: auto))
+	),
+	'margin-end': (
+		responsive: true,
+		property: margin-right,
+		class: me,
+		values: map.merge($spacers, (auto: auto))
+	),
+	'margin-start': (
+		responsive: true,
+		property: margin-left,
+		class: ms,
+		values: map.merge($spacers, (auto: auto))
+	),
+	'order': (
+		responsive: true,
+		property: order,
+		values: (
+			first: -1,
+			0: 0,
+			1: 1,
+			2: 2,
+			3: 3,
+			4: 4,
+			5: 5,
+			last: 6,
+		),
+	),
+	'justify-content': (
+		responsive: false,
+		property: justify-content,
+		values: (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			between: space-between,
+			around: space-around,
+			evenly: space-evenly,
+		)
+	),
+	'align-items': (
+		responsive: false,
+		property: align-items,
+		values: (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			baseline: baseline,
+			stretch: stretch,
+		)
+	),
+);

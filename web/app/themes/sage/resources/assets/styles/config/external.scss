@@ -1,0 +1,20 @@
+/* Bootstrap */
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import '~bootstrap/scss/functions';
+// 2. Include any default variable overrides here
+@import 'variable-bootstrap';
+// 3. Include remainder of required Bootstrap stylesheets
+@import '~bootstrap/scss/variables';
+// 4. Include remainder of required parts
+@import '~bootstrap/scss/maps';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/root';
+// 5. Include any optional Bootstrap components as you like
+@import '~bootstrap/scss/containers';
+@import '~bootstrap/scss/utilities/api';
+
+/* Destyle */
+@import '~destyle.css/destyle';
+
+/* Tiny-slider */
+@import '../external/tiny-slider';

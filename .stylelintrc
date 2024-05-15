@@ -1,0 +1,332 @@
+{
+	"plugins": [
+	  "stylelint-scss",
+	  "stylelint-order",
+	  "stylelint-high-performance-animation"
+	],
+	"extends": [
+	  "stylelint-config-standard",
+	  "stylelint-config-standard-scss"
+	],
+	"customSyntax": "postcss-scss",
+	"rules": {
+	  "at-rule-no-unknown": null,
+	  "scss/at-rule-no-unknown": true,
+	  "at-rule-no-vendor-prefix": true,
+	  "scss/function-no-unknown": [true, {
+		"ignoreFunctions": ["clamp-calculator", "decimal-round", "spacer"]
+	  }],
+	  "scss/double-slash-comment-empty-line-before": ["never", {
+		"except": ["inside-block"],
+		"ignore": ["inside-block", "stylelint-commands"]
+	  }],
+	  "color-no-hex": [true, {
+		"severity": "warning"
+	  }],
+	  "declaration-empty-line-before": "never",
+	  "declaration-no-important": [true, {
+		"severity": "warning"
+	  }],
+	  "font-family-name-quotes": "always-unless-keyword",
+	  "font-family-no-missing-generic-family-keyword": null,
+	  "font-weight-notation": "numeric",
+	  "function-url-quotes": "always",
+	  "indentation": null,
+	  "keyframe-declaration-no-important": [true, {
+		"severity": "warning"
+	  }],
+	  "no-descending-specificity": null,
+	  "no-empty-source": [true, {
+		"severity": "warning"
+	  }],
+	  "selector-class-pattern": "^([a-z][a-z0-9]*)([-_]+[a-z0-9]+)*$",
+	  "no-eol-whitespace": null,
+	  "no-missing-end-of-source-newline": null,
+	  "number-leading-zero": "never",
+	  "media-feature-name-no-vendor-prefix": true,
+	  "selector-attribute-quotes": "always",
+	  "selector-no-vendor-prefix": true,
+	  "string-quotes": "single",
+	  "value-no-vendor-prefix": true,
+	  "color-function-notation": "legacy",
+	  "max-line-length": [200, {
+		"ignore" : ["comments"]
+	  }],
+	  "property-no-vendor-prefix": true,
+	  "property-disallowed-list": [
+		[
+		  "float",
+		  "clear"
+		], {
+		  "message": "Please use flexbox to justify content and/or align items",
+		  "severity": "warning"
+		}
+	  ],
+	  "order/order": [
+		[
+		  "custom-properties",
+		  "dollar-variables",
+		  {
+			"type": "at-rule",
+			"name": "extend"
+		  },
+		  {
+			"type": "at-rule",
+			"name": "include",
+			"hasBlock": false
+		  },
+		  "declarations",
+		  {
+			"type": "rule",
+			"selector": "^&::(?!before|after)" # Matches pseudo-elements like "&::placeholder" but not "&::before" and "&::after".
+		  },
+		  {
+			"type": "rule",
+			"selector": "^&::before" # Matches pseudo-element "&::before".
+		  },
+		  {
+			"type": "rule",
+			"selector": "^&::after" # Matches pseudo-element "&::after".
+		  },
+		  {
+			"type": "rule",
+			"selector": "^\\*" # Matches all non-psuedo-elements
+		  },
+		  {
+			"type": "rule",
+			"selector": "^[^&\\+~]*[^:&]$" # Matches child-elements like ".example".
+		  },
+		  {
+			"type": "rule",
+			"selector": "^\\+" # Matches elements that are placed immediately after, like "+ .example".
+		  },
+		  {
+			"type": "rule",
+			"selector": "^~" # Matches elements that are placed somewhere after, like "~ .example".
+		  },
+		  {
+			"type": "rule",
+			"selector": "^&:(?!.*(child|type|not)).*" # Matches simple pseudo-classes like "&:hover".
+		  },
+		  {
+			"type": "rule",
+			"selector": "^&((\\.|\\[)|(.*(child|type|not)).*)" # Matches modifiers like "&.example", "&:first-child" and "&:not(.example)".
+		  },
+		  {
+			"type": "rule",
+			"selector": "&$" # Matches parent-modifiers like ".example &".
+		  },
+		  {
+			"type": "at-rule",
+			"name": "keyframes"
+		  },
+		  {
+			"type": "at-rule",
+			"name": "include",
+			"hasBlock": true
+		  }
+		], {
+		  "unspecified": "ignore"
+		}
+	  ],
+	  "order/properties-order": [
+		[
+		  "opacity",
+		  "visibility",
+		  "backface-visibility",
+		  "overflow",
+		  "overflow-x",
+		  "overflow-y",
+		  "overflow-wrap",
+		  "speak",
+		  "box-sizing",
+		  "appearance",
+		  "display",
+		  "grid",
+		  "grid-template-rows",
+		  "grid-template-columns",
+		  "grid-template-areas",
+		  "grid-auto-rows",
+		  "grid-auto-columns",
+		  "grid-auto-flow",
+		  "grid-column-gap",
+		  "grid-row-gap",
+		  "grid-area",
+		  "grid-column-start",
+		  "grid-column-end",
+		  "grid-column",
+		  "grid-gap",
+		  "grid-row-start",
+		  "grid-row-end",
+		  "grid-row",
+		  "grid-template",
+		  "flex",
+		  "flex-basis",
+		  "flex-direction",
+		  "flex-flow",
+		  "flex-grow",
+		  "flex-shrink",
+		  "flex-wrap",
+		  "justify-content",
+		  "justify-items",
+		  "align-content",
+		  "align-items",
+		  "width",
+		  "min-width",
+		  "max-width",
+		  "height",
+		  "min-height",
+		  "max-height",
+		  "resize",
+		  "margin",
+		  "margin-top",
+		  "margin-right",
+		  "margin-bottom",
+		  "margin-left",
+		  "border",
+		  "border-width",
+		  "border-style",
+		  "border-color",
+		  "border-radius",
+		  "border-collapse",
+		  "border-image",
+		  "border-image-outset",
+		  "border-image-repeat",
+		  "border-image-source",
+		  "border-image-slice",
+		  "border-image-width",
+		  "border-spacing",
+		  "border-top",
+		  "border-top-color",
+		  "border-top-right-radius",
+		  "border-top-left-radius",
+		  "border-top-style",
+		  "border-top-width",
+		  "border-right",
+		  "border-right-color",
+		  "border-right-style",
+		  "border-right-width",
+		  "border-bottom",
+		  "border-bottom-color",
+		  "border-bottom-right-radius",
+		  "border-bottom-left-radius",
+		  "border-bottom-style",
+		  "border-bottom-width",
+		  "border-left",
+		  "border-left-color",
+		  "border-left-style",
+		  "border-left-width",
+		  "outline",
+		  "outline-color",
+		  "outline-style",
+		  "outline-width",
+		  "outline-offset",
+		  "padding",
+		  "padding-top",
+		  "padding-right",
+		  "padding-bottom",
+		  "padding-left",
+		  "background",
+		  "background-image",
+		  "background-size",
+		  "background-position",
+		  "background-repeat",
+		  "background-origin",
+		  "background-clip",
+		  "background-attachment",
+		  "background-color",
+		  "background-blend-mode",
+		  "object-fit",
+		  "object-position",
+		  "clip-path",
+		  "list-style",
+		  "list-style-type ",
+		  "list-style-position",
+		  "list-style-image",
+		  "counter-increment",
+		  "counter-reset",
+		  "content",
+		  "unicode-bidi",
+		  "font",
+		  "font-family",
+		  "src",
+		  "font-weight",
+		  "font-size",
+		  "font-style",
+		  "font-variant",
+		  "font-variant-alternates",
+		  "font-variant-caps",
+		  "font-variant-east-asian",
+		  "font-variant-ligatures",
+		  "font-variant-numeric",
+		  "font-variant-position",
+		  "font-stretch",
+		  "font-feature-settings",
+		  "font-kerning",
+		  "font-language-override",
+		  "font-size-adjust",
+		  "font-synthesis",
+		  "line-height",
+		  "line-break",
+		  "color",
+		  "text-align",
+		  "text-align-last",
+		  "text-decoration",
+		  "text-decoration-line",
+		  "text-decoration-style",
+		  "text-decoration-color",
+		  "text-decoration-skip",
+		  "text-indent",
+		  "text-overflow",
+		  "text-shadow",
+		  "text-transform",
+		  "text-underline-position",
+		  "letter-spacing",
+		  "hyphens",
+		  "white-space",
+		  "word-break",
+		  "word-spacing",
+		  "word-wrap",
+		  "box-shadow",
+		  "filter",
+		  "cursor",
+		  "user-select",
+		  "pointer-events",
+		  "order",
+		  "justify-self",
+		  "align-self",
+		  "vertical-align",
+		  "position",
+		  "top",
+		  "right",
+		  "bottom",
+		  "left",
+		  "transform",
+		  "transform-origin",
+		  "transform-style",
+		  "z-index",
+		  "transition",
+		  "transition-delay",
+		  "transition-duration",
+		  "transition-property ",
+		  "transition-timing-function",
+		  "animation",
+		  "animation-name",
+		  "animation-duration",
+		  "animation-timing-function",
+		  "animation-delay",
+		  "animation-iteration-count",
+		  "animation-direction",
+		  "animation-fill-mode",
+		  "animation-play-state",
+		  "will-change"
+		], {
+		  "severity": "error"
+		}
+	  ],
+	  "plugin/no-low-performance-animation-properties": [true, {
+		"ignoreProperties": ["all", "visibility", "border-color", "background-color", "color", "box-shadow"],
+		"severity": "warning"
+	  }]
+	}
+  }

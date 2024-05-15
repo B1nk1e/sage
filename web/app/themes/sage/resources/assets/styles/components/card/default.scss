@@ -1,0 +1,9 @@
+.card {
+    $self: &;
+    position: relative;
+
+    &__anchor {
+        @include fill-w-h;
+        z-index: 10;
+    }
+}

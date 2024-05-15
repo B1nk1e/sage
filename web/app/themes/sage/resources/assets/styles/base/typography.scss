@@ -1,0 +1,233 @@
+@use 'sass:math';
+
+body {
+	font: {
+		family: $font-family-base;
+		weight: 400;
+		size: var(--font-size-base);
+	}
+
+	line-height: var(--line-height-base);
+
+	b,
+	strong {
+		font-weight: 500;
+	}
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	text-rendering: optimizeLegibility;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-feature-settings: 'liga', 'kern';
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: $font-family-base;
+    font-weight: 600;
+}
+
+h1,
+.h1 {
+    font-size: clamp-calculator(42, 92);
+    line-height: decimal-round(math.div(102, 92), 2, floor);
+    letter-spacing: calc(-1 * #{calc(4 / 100 * clamp-calculator(42, 92))});
+
+    &.big {
+        font-size: clamp-calculator(102, 192);
+        line-height: decimal-round(math.div(192, 192), 2, floor);
+        letter-spacing: calc(-1 * #{calc(2 / 100 * clamp-calculator(102, 192))});
+    }
+}
+
+h2,
+.h2 {
+    font-size: clamp-calculator(32, 72);
+    line-height: decimal-round(math.div(82, 72), 2, floor);
+    letter-spacing: calc(-1 * #{calc(4 / 100 * clamp-calculator(32, 72))});
+}
+
+h3,
+.h3 {
+    font-size: clamp-calculator(28, 52);
+    line-height: decimal-round(math.div(62, 52), 2, floor);
+    letter-spacing: calc(-1 * #{calc(4 / 100 * clamp-calculator(28, 52))});
+}
+
+h4,
+.h4 {
+    font-size: clamp-calculator(26, 42);
+    line-height: decimal-round(math.div(52, 42), 2, floor);
+    letter-spacing: calc(-1 * #{calc(4 / 100 * clamp-calculator(26, 42))});
+}
+
+h5,
+.h5 {
+    font-size: clamp-calculator(20, 32);
+    line-height: decimal-round(math.div(42, 32), 2, floor);
+    letter-spacing: calc(-1 * #{calc(4 / 100 * clamp-calculator(20, 32))});
+}
+
+h6,
+.h6 {
+    font-size: clamp-calculator(16, 24);
+    line-height: decimal-round(math.div(32, 24), 2, floor);
+    letter-spacing: calc(-1 * #{calc(4 / 100 * clamp-calculator(16, 24))});
+}
+
+// Textual
+main {
+	p,
+	ul,
+	ol,
+	table {
+		&:not([class*='-none']) {
+			+ *:not(.btn) {
+				margin-top: 15px;
+
+				@include media-breakpoint-up(xl) {
+					margin-top: 20px;
+				}
+			}
+		}
+	}
+}
+
+// Anchors
+p a,
+ul li a,
+ol li a,
+small a,
+td a,
+.link {
+	&:not(.btn) {
+		font-weight: 700;
+		text-decoration: underline;
+	}
+}
+
+//Lists
+ul {
+	&:not(&.checked) {
+		li {
+			&:before {
+				content: '·';
+				font-size: 32px;
+				vertical-align: middle;
+				margin-right: 12px;
+			}
+		}
+	}
+
+	&.checked {
+		li {
+			&:before {
+				@include checkmark;
+			}
+		}
+	}
+}
+
+
+picture,
+figure {
+	figcaption {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-bottom: 0;
+			color: inherit;
+		}
+	}
+}
+
+.body-xl {
+	font-size: var(--font-size-xl);
+	line-height: var(--line-height-xl);
+	letter-spacing: var(--letter-spacing-base);
+	font-weight: 400;
+}
+
+.body-l {
+	font-size: var(--font-size-l);
+	line-height: var(--line-height-l);
+	letter-spacing: var(--letter-spacing-base);
+	font-weight: 400;
+}
+
+.body-m {
+	font-size: var(--font-size-m);
+	line-height: var(--line-height-m);
+	letter-spacing: var(--letter-spacing-base);
+	font-weight: 400;
+}
+
+.body-s {
+	font-size: var(--font-size-s);
+	line-height: var(--line-height-s);
+	letter-spacing: var(--letter-spacing-base);
+	font-weight: 400;
+}
+
+.body-xs {
+	font-size: var(--font-size-xs);
+	line-height: var(--line-height-xs);
+	letter-spacing: 0;
+	font-weight: 400;
+}
+
+.body-intro {
+	font-size: var(--font-size-xl);
+	line-height: var(--line-height-intro);
+	letter-spacing: var(--letter-spacing-base);
+}
+
+.body-btn-m {
+	font-size: var(--font-size-btn-m);
+	line-height: var(--line-height-btn-m);
+	letter-spacing: var(--letter-spacing-btn);
+	text-transform: uppercase;
+}
+
+.body-btn-s {
+	font-size: var(--font-size-btn-s);
+	line-height: var(--line-height-btn-s);
+	letter-spacing: var(--letter-spacing-btn);
+	text-transform: uppercase;
+}
+
+.body-quote-l {
+	font-family: $font-family-secondary;
+	font-size: var(--font-size-quote-l);
+	line-height: var(--line-height-quote-l);
+	letter-spacing: var(--letter-spacing-btn);
+	text-transform: uppercase;
+}
+
+.body-quote-m {
+	font-family: $font-family-secondary;
+	font-size: var(--font-size-quote-m);
+	line-height: var(--line-height-quote-m);
+	letter-spacing: var(--letter-spacing-btn);
+	text-transform: uppercase;
+}

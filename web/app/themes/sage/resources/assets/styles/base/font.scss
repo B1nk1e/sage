@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Plain';
+    src: url('#{$font-path}/Plain-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Plain';
+    src: url('#{$font-path}/Plain-Medium.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: block;
+}

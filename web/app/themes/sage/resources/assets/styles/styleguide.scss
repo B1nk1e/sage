@@ -1,0 +1,12 @@
+$is-styleguide: true;
+
+/* Import default style */
+@import 'default';
+
+/* Import specific style */
+@import 'styleguide/config/color';
+@import 'styleguide/default';
+@import 'styleguide/color';
+@import 'styleguide/typography';
+@import 'styleguide/form';
+@import 'styleguide/icon';

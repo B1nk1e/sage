@@ -1,0 +1,24 @@
+$icomoon-font-path: '../../fonts/enabl-icons/fonts';
+
+@import '../../fonts/enabl-icons/style';
+@import '../../fonts/enabl-icons/variables';
+
+%icon {
+    speak: none;
+
+    /* use !important to prevent issues with browser extensions that change fonts */
+    //font-family: '#{$icomoon-font-family}' !important; /* stylelint-disable-line declaration-no-important */
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-transform: none;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.checkmark {
+   @include checkmark;
+}
